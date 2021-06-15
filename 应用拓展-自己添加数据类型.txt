@@ -1,0 +1,27 @@
+﻿
+！！！！非专业人士绕路、不懂正则表达式绕路
+
+1、定位源码
+在js文件中，初始的数据类型initDataKinds有四种：数字、百分数、科学计数法、任意非空字符
+其中科学计数法是：
+
+{text:"\u79d1\u5b66\u8ba1\u6570\u6cd5",reg:/^[\-|\+]{0,1}[\d]+[\.]{0,1}[\d]*[e|E][\-|\+]{0,1}[\d]+[\.]{0,1}[\d]*$/,parseFun:function(e){return Number.isNaN(Number(e))?e:Number(e)}}
+
+可复制到js文件中搜索，
+2、！！在其后面、（任意字符的规则）前面添加数据类型，否则会报错！！
+
+
+数据类型
+{
+text：sting类型，是规则的名字，最好转为unicode编码，如：数字、百分数、科学计数法
+reg：RegExp,正则表达式，用于匹配数据类型
+parseFun：用来转换数据类型或格式化数据，通常是将string类型转为number类型，可以用 function(e){return Number.isNaN(Number(e))?e:Number(e)}
+}
+举例
+
+//年月日
+{
+text:'\u5e74\u6708\u65e5', 
+reg:/[0-9]{2,4}[.|\/]{0,1}[0-1]{0,1}[0-9][.|\/]{0,1}[0-3]{0,1}[0-9]/,
+parseFun:function(e){return e.replaceAll(/[\.\/]/g,'')}
+}

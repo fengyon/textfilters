@@ -1,0 +1,9 @@
+﻿重置历史记录
+1、进入此网页，打开浏览器的控制台（console）
+  --1、右键，选择“检查”
+  --2、ctrl+shift+I （不同浏览器可能不同）
+2、输入下段代码：
+
+  window.localStorage.clear();window.onbeforeunload = null
+
+3、按下回车（Enter），刷新网页
