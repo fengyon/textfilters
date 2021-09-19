@@ -4,6 +4,6 @@
   --2、ctrl+shift+I （不同浏览器可能不同）
 2、输入下段代码：
 
-  window.localStorage.clear();window.onbeforeunload = null;location.reload();
+  window.localStorage && window.localStorage.clear();window.onbeforeunload = null;location.reload();
 
 3、按下回车（Enter）
